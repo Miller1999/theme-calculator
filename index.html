@@ -4,10 +4,57 @@
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Calc</title>
 	</head>
 	<body>
-		<div id="app"></div>
+		<div id="app" class="theme1">
+			<header>
+				<h1 class="title">calc</h1>
+				<div class="switch__container">
+					<p class="theme">THEME</p>
+					<div class="switch">
+						<ul class="numbers">
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+						</ul>
+						<div class="button__container">
+							<div class="button__container-circle"></div>
+						</div>
+					</div>
+				</div>
+			</header>
+			<main>
+				<div class="screen"><span class="screen__input">321</span></div>
+				<ul class="keyboard">
+						<li>7</li>
+						<li>8</li>
+						<li>9</li>
+						<li class="del">DEL</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+						<li>+</li>
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>-</li>
+						<li>.</li>
+						<li>0</li>
+						<li>/</li>
+						<li>x</li>
+						<li class="reset">RESET</li>
+						<li class="result">=</li>
+					</ul>
+				</ul>
+			</main>
+		</div>
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>
