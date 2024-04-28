@@ -34,7 +34,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Repository](https://github.com/Miller1999/theme-calculator)
-- Live Site URL: [Calc](https://your-live-site-url.com)
+- Live Site URL: [Calc](https://calc-eight-rust.vercel.app/)
 
 ## My process
 

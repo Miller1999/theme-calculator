@@ -17,7 +17,7 @@ let isResultShowed: boolean = false;
 const circle: HTMLElement | null = document.querySelector("#circle");
 const app: HTMLElement | null = document.querySelector("#app");
 let click: number = parseInt(
-	localStorage.getItem("prefers-color-scheme") || ""
+	localStorage.getItem("prefers-color-scheme") || "1"
 );
 circle?.addEventListener("click", () => {
 	click = click >= 3 ? 1 : click + 1;
