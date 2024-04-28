@@ -4,7 +4,9 @@ const screen: HTMLElement | null = document.querySelector("#screen");
 const value: HTMLSpanElement = document.createElement("span");
 value.style.maxWidth = "100%";
 value.style.overflow = "hidden";
-const keys = Array.from(document.querySelector("#keyboard")?.children);
+const keys: HTMLCollection | never[] =
+	document.querySelector("#keyboard")?.children || [];
+const keysArray = Array.from(keys);
 const equal: HTMLElement | null = document.querySelector("#result");
 const resetKey: HTMLElement | null = document.querySelector("#reset");
 const delKey: HTMLElement | null = document.querySelector("#del");
@@ -14,7 +16,9 @@ let isResultShowed: boolean = false;
 // Switch
 const circle: HTMLElement | null = document.querySelector("#circle");
 const app: HTMLElement | null = document.querySelector("#app");
-let click: number = parseInt(localStorage.getItem("prefers-color-scheme"));
+let click: number = parseInt(
+	localStorage.getItem("prefers-color-scheme") || ""
+);
 circle?.addEventListener("click", () => {
 	click = click >= 3 ? 1 : click + 1;
 	localStorage.setItem("prefers-color-scheme", `${click}`);
@@ -23,12 +27,13 @@ circle?.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-	app.className = `theme${localStorage.getItem("prefers-color-scheme")}`;
+	if (app)
+		app.className = `theme${localStorage.getItem("prefers-color-scheme")}`;
 });
 
 delKey?.addEventListener("click", () => deleteNumber());
 
-keys.forEach((key) => {
+keysArray.forEach((key) => {
 	key.addEventListener("click", (e) => {
 		const target = e.target as HTMLElement;
 		if (target?.textContent !== "DEL") {
@@ -70,9 +75,9 @@ function division(a: number, b: number): number | string {
 		return "Math Error";
 	}
 }
-function result(result: string | number): void {
+function result(result: number | string | null): void {
 	value.textContent = "";
-	value.textContent = result;
+	value.textContent = result?.toString() || "";
 }
 
 function resolve(value: any, operation: string) {
@@ -107,5 +112,5 @@ function deleteNumber() {
 	const valueA = value.textContent?.split("");
 	valueA?.pop();
 	const show = valueA?.join("");
-	value.textContent = show;
+	if (show) value.textContent = show;
 }
