@@ -28,7 +28,9 @@ circle?.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
 	if (app)
-		app.className = `theme${localStorage.getItem("prefers-color-scheme")} || 1`;
+		app.className = `theme${localStorage.getItem(
+			"prefers-color-scheme" || 1
+		)} `;
 });
 
 delKey?.addEventListener("click", () => deleteNumber());
