@@ -17,7 +17,7 @@ let isResultShowed: boolean = false;
 const circle: HTMLElement | null = document.querySelector("#circle");
 const app: HTMLElement | null = document.querySelector("#app");
 let click: number = parseInt(
-	localStorage.getItem("prefers-color-scheme") || "1"
+	localStorage.getItem("prefers-color-scheme") || ""
 );
 circle?.addEventListener("click", () => {
 	click = click >= 3 ? 1 : click + 1;
@@ -28,9 +28,11 @@ circle?.addEventListener("click", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
 	if (app)
-		app.className = `theme${localStorage.getItem(
-			"prefers-color-scheme" || 1
-		)} `;
+		if (localStorage.getItem("prefers-color-scheme") === null) {
+			app.className = "theme1";
+		} else {
+			app.className = `theme${localStorage.getItem("prefers-color-scheme")} `;
+		}
 });
 
 delKey?.addEventListener("click", () => deleteNumber());
