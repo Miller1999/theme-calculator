@@ -28,8 +28,15 @@ Users should be able to:
 - **Bonus**: Have their initial theme preference checked using `prefers-color-scheme` and have any additional changes saved in the browser
 
 ### Screenshot
+#### Themes
+##### Theme 1
+![imagen](https://github.com/Miller1999/theme-calculator/assets/22383830/047d057c-8539-49bc-917e-e5df5de2d20b)
 
-![](./screenshot.jpg)
+##### Theme 2
+![imagen](https://github.com/Miller1999/theme-calculator/assets/22383830/3887c0b8-cfb7-419d-a3ae-fcfce2398bfc)
+
+##### Theme 3
+![imagen](https://github.com/Miller1999/theme-calculator/assets/22383830/9f0be6d5-5d17-402c-a5b2-a0c4c9fe68f4)
 
 ### Links
 
