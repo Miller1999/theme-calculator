@@ -1,25 +1,42 @@
 import "./style.sass";
-
-const screen = document.querySelector("#screen");
-const value = document.createElement("span");
+// Calculator Function
+const screen: HTMLElement | null = document.querySelector("#screen");
+const value: HTMLSpanElement = document.createElement("span");
+value.style.maxWidth = "100%";
+value.style.overflow = "hidden";
 const keys = Array.from(document.querySelector("#keyboard")?.children);
-const equal = document.querySelector("#result");
-const resetKey = document.querySelector("#reset");
-const delKey = document.querySelector("#del");
+const equal: HTMLElement | null = document.querySelector("#result");
+const resetKey: HTMLElement | null = document.querySelector("#reset");
+const delKey: HTMLElement | null = document.querySelector("#del");
 const mathOperations = ["+", "-", "x", "/"];
+let isResultShowed: boolean = false;
 
-let isResultShowed = false;
+// Switch
+const circle: HTMLElement | null = document.querySelector("#circle");
+const app: HTMLElement | null = document.querySelector("#app");
+let click: number = parseInt(localStorage.getItem("prefers-color-scheme"));
+circle?.addEventListener("click", () => {
+	click = click >= 3 ? 1 : click + 1;
+	localStorage.setItem("prefers-color-scheme", `${click}`);
+	app?.classList.remove("theme1", "theme2", "theme3");
+	app?.classList.add(`theme${localStorage.getItem("prefers-color-scheme")}`);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+	app.className = `theme${localStorage.getItem("prefers-color-scheme")}`;
+});
 
 delKey?.addEventListener("click", () => deleteNumber());
 
 keys.forEach((key) => {
 	key.addEventListener("click", (e) => {
-		if (e?.target?.textContent !== "DEL") {
+		const target = e.target as HTMLElement;
+		if (target?.textContent !== "DEL") {
 			if (isResultShowed) {
-				value.textContent = e?.target?.textContent;
+				value.textContent = target?.textContent;
 				isResultShowed = false;
 			} else {
-				value.textContent += e?.target?.textContent;
+				value.textContent += target?.textContent || "";
 			}
 			screen?.appendChild(value);
 			mathOperations.forEach((operation) => resolve(value, operation));

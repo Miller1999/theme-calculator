@@ -50,3 +50,9 @@ $special-text-theme3: hsl(0, 0%, 100%)
 $size: 2rem
 $family: "League Spartan"
 $weight: 700
+
+$tablet: 460px
+
+@mixin tablet
+  @media ( min-width:$tablet)
+    @content

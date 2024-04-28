@@ -9,6 +9,7 @@ html
   font-family: $family
   font-size: $size
   font-weight: $weight
+  transition: all .3s
   // border: 1px solid red !important
 
 li
@@ -18,6 +19,10 @@ li
   width: 100%
   height: 100vh
   padding: 2rem
+  display: flex
+  flex-direction: column
+  justify-content: center
+
   h1,p,li
     margin: 0
     padding: 0
@@ -52,6 +57,7 @@ header
         border-radius: 2rem
         padding: 0rem .5rem
         .button__container-circle
+          cursor: pointer
           height: 2.5rem
           width: 2.5rem
           border-radius: 50%
@@ -91,6 +97,13 @@ main
       grid-column-start: 3
       grid-column-end: 5
 
+@include tablet
+  #app
+    align-items: center
+  header,main
+    max-width: 420px
+    min-width: 420px
+
 .theme1
   background-color: $main-background-theme1
   color: $special-text-theme1
@@ -101,6 +114,7 @@ main
           background-color: $toggle-keypad-background-theme1
           .button__container-circle
             background-color: $key-toggle-background-theme1
+            transform: translateX(0)
   main
     .screen
       background-color: $screen-background-theme1
@@ -132,6 +146,7 @@ main
           background-color: $toggle-keypad-background-theme2
           .button__container-circle
             background-color: $key-toggle-background-theme2
+            transform: translateX(2.7rem)
   main
     .screen
       background-color: $screen-background-theme2
@@ -163,6 +178,7 @@ main
           background-color: $toggle-keypad-background-theme3
           .button__container-circle
             background-color: $key-toggle-background-theme3
+            transform: translateX(5.4rem)
   main
     .screen
       background-color: $screen-background-theme3
